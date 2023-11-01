@@ -48,11 +48,11 @@
 
 @media (max-width: 540px) {
     .customNavbar {
-        position: static;
+        position: absolute;
         background-color: rgba(150, 158, 145, 1);
 
     }
     .customNavbarMenuOpen {
-        position: relative;
+        position: absolute;
     }
 }

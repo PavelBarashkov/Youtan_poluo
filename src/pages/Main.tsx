@@ -1,13 +1,16 @@
-import React from 'react'
 import { MainSlide } from '../components/MainSlide/MainSlide'
-import { MainCollection } from '../components/MainСollection/MainCollection'
-import { Container } from 'react-bootstrap'
+import { MainCollection } from '../modules/MainCollection'
+import { InfoBlock } from '../components/InfoBlock/InfoBlock'
+import { FAQ } from '../components/FAQ/FAQ'
 
 export const Main = () => {
+
   return (
     <>
         <MainSlide/>
         <MainCollection/>
+        <InfoBlock/>
+        <FAQ/>
     </>
   )
 }

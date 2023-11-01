@@ -1,11 +1,11 @@
 .carousel {
     width: 100%;
-
 }
 
 .carousel_image {
     /* height: 100vh; */
     width: 100%;
+
 }
 
 .img {
@@ -15,6 +15,15 @@
 
 .item {
     max-height: 100vh;
+}
+.carousel-indicators {
+    z-index: 1;
+}
+
+@media (max-width: 540px) {
+    .img {
+        margin-top: 56px;
+    }
 }
 
 @media (max-width: 768px) {

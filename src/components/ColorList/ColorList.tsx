@@ -1,5 +1,5 @@
 import React from 'react'
-import { ColorItem } from '../ColourItem/ColourItem'
+import { ColorItem } from '../../UI/ColourItem/ColourItem'
 import classesColorList from './colorList.module.css'
 
 export const ColorList = ({colors}: any) => {
