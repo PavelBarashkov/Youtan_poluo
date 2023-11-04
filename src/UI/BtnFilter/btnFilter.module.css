@@ -1,0 +1,18 @@
+.btn {
+    border: none;
+    background-color: #ffff;
+    border-radius: 4px;
+
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: rgb(149 164 140 / 84%);
+    color: #ffff;
+    transition: .3s;
+}
+
+.btn.active {
+    background-color: rgb(149 164 140 / 84%);
+    color: #ffff;
+}
