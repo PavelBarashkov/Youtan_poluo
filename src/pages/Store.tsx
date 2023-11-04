@@ -1,11 +1,8 @@
-import { Filter } from "../components/Filter/Filter"
-import { SortAndFilter } from "../modules/SortAndFilter"
+import { Shope } from "../modules/Shope"
 
 export const Store = () => {
     
   return (
-    <>
-        <SortAndFilter/>
-    </>
+    <Shope/>
   )
 }

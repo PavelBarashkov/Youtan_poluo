@@ -1,7 +1,10 @@
 .btn {
+    text-align: start;
+
     border: none;
+    border-bottom: 1px solid lightgray;
     background-color: #ffff;
-    border-radius: 4px;
+    border-radius: 3px;
 
     font-size: 14px;
 }
