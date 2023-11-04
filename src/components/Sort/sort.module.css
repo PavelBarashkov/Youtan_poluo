@@ -1,16 +1,16 @@
-.filter_container {
+.sort_container {
     max-width: 150px;
     display: flex;
     flex-direction: column;
     row-gap: 8px;
 }
 
-.filter_title {
+.sort_title {
     text-align: center;
     font-weight: 500;
 }
 
-.filter_btns {
+.sort_btns {
     display: flex;
     flex-direction: column;
     row-gap: 5px;

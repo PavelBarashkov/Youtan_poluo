@@ -5,7 +5,7 @@ export const Filter = ({types}: any) => {
   return (
     <div className={classes.filter_container}>
         <div className={classes.filter_title}>
-            Фильтер
+            Фильтер:
         </div>
         <div className={classes.filter_btns}>
             {types.map((item: any) => (
