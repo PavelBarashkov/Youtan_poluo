@@ -5,7 +5,7 @@ import { Titile } from '../../UI/Title/Title'
 import './faq.style.css'
 export const FAQ = () => {
   return (
-    <Container className={classes.container}>
+    <Container className={classes.container} id="FAQ">
         <Titile>FAQ</Titile>
     <Accordion>
         <Row xs={1} md={2}>

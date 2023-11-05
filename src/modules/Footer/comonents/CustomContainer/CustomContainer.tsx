@@ -8,7 +8,7 @@ interface ICustomContainerProps {
 
 export const CustomContainer = ({children}: ICustomContainerProps) => {
   return (
-    <footer className={classes.footer}>
+    <footer className={classes.footer} id="footer">
         <Container>
             {children}
         </Container>

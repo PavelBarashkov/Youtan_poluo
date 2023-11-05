@@ -54,11 +54,11 @@ export const NavBar = () => {
                                 <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
 
                                     <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#infoBlock">О бренде</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#footer">Контакты</Nav.Link>
 
                                     <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#FAQ">FAQ</Nav.Link>
                                     <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(BASKET_ROUTE)}>
                                         <IconBasket />
                                     </Nav.Link>
@@ -78,15 +78,15 @@ export const NavBar = () => {
                     <Container className="d-flex justify-content-around">
                             <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
                                 <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink} href="#infoBlock">О бренде</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink} href="#footer">Контакты</Nav.Link>
                             </Nav>
 
                             <Navbar.Brand className={`${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
 
                             <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
                                 <Nav.Link className={classesNavBar.customNavLink}  href="#home">Доставка и оплата</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink}  href="#features">FAQ</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink}  href="#FAQ">FAQ</Nav.Link>
                                 <Nav.Link className={classesNavBar.customNavLink}  onClick={() => navigate(BASKET_ROUTE)}>
                                     <IconBasket />
                                 </Nav.Link>
@@ -112,11 +112,11 @@ export const NavBar = () => {
                                 <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
 
                                     <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(MAIN_ROUTE)}  href="#infoBlock">О бренде</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#footer">Контакты</Nav.Link>
 
                                     <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(MAIN_ROUTE)}  href="#FAQ">FAQ</Nav.Link>
                                     <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(BASKET_ROUTE)}>
                                         <IconBasket />
                                     </Nav.Link>
@@ -135,16 +135,16 @@ export const NavBar = () => {
                 <Container className="d-flex justify-content-around">
                         <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
                             <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+                            <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(MAIN_ROUTE)}  href="#infoBlock">О бренде</Nav.Link>
+                            <Nav.Link className={classesNavBar.customNavLink} href="#footer">Контакты</Nav.Link>
                         </Nav>
 
                         <Navbar.Brand className={`${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
 
                         <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
-                            <Nav.Link className={classesNavBar.customNavLink}  href="#home">Доставка и оплата</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink}  href="#features">FAQ</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink}  onClick={() => navigate(BASKET_ROUTE)}>
+                            <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
+                            <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(MAIN_ROUTE)}  href="#FAQ">FAQ</Nav.Link>
+                            <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(BASKET_ROUTE)}>
                                 <IconBasket />
                             </Nav.Link>
                         </Nav>
