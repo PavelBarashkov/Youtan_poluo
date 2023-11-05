@@ -6,7 +6,7 @@ import { IconBasket } from '../../../UI/IconBasket/IconBasket';
 import { Logo } from '../../../UI/Logo/Logo';
 import classesNavBar from './navbar.module.css'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MAIN_ROUTE, STORE_ROUTE } from '../../../routes/consts';
+import { BASKET_ROUTE, MAIN_ROUTE, STORE_ROUTE } from '../../../routes/consts';
 
 
 export const NavBar = () => {
@@ -59,7 +59,7 @@ export const NavBar = () => {
 
                                     <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
                                     <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">
+                                    <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(BASKET_ROUTE)}>
                                         <IconBasket />
                                     </Nav.Link>
                                 </Nav>
@@ -87,7 +87,7 @@ export const NavBar = () => {
                             <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
                                 <Nav.Link className={classesNavBar.customNavLink}  href="#home">Доставка и оплата</Nav.Link>
                                 <Nav.Link className={classesNavBar.customNavLink}  href="#features">FAQ</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink}  href="#pricing">
+                                <Nav.Link className={classesNavBar.customNavLink}  onClick={() => navigate(BASKET_ROUTE)}>
                                     <IconBasket />
                                 </Nav.Link>
                             </Nav>
@@ -117,7 +117,7 @@ export const NavBar = () => {
 
                                     <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
                                     <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
-                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">
+                                    <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(BASKET_ROUTE)}>
                                         <IconBasket />
                                     </Nav.Link>
                                 </Nav>
@@ -144,7 +144,7 @@ export const NavBar = () => {
                         <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
                             <Nav.Link className={classesNavBar.customNavLink}  href="#home">Доставка и оплата</Nav.Link>
                             <Nav.Link className={classesNavBar.customNavLink}  href="#features">FAQ</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink}  href="#pricing">
+                            <Nav.Link className={classesNavBar.customNavLink}  onClick={() => navigate(BASKET_ROUTE)}>
                                 <IconBasket />
                             </Nav.Link>
                         </Nav>
