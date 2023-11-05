@@ -8,6 +8,9 @@
 
 .customNavbar {
     width: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
     transition: background-color .2s;
     background-color: rgba(150, 158, 145, 1);
 }
@@ -16,6 +19,7 @@
 .customNavbarMenuOpen {
     position: absolute;
     z-index: 2;
+    top:0;
     width: 100%;
     background-color: rgba(150, 158, 145, 1);
 }
@@ -59,10 +63,12 @@
 @media (max-width: 540px) {
     .customNavbarMain {
         position: absolute;
+        top: 0;
         background-color: rgba(150, 158, 145, 1);
 
     }
     .customNavbarMenuOpen {
         position: absolute;
+        top: 0;
     }
 }
