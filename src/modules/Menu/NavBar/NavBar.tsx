@@ -40,33 +40,33 @@ export const NavBar = () => {
         setIsMenuOpen(!isMenuOpen);
       };
 
-    if (sizeWindow < 1200) {
+    if (sizeWindow < 1200 && isMain) {
         return (
             <>
-            <Navbar expand="xl" className={isMenuOpen ? classesNavBar.customNavbarMenuOpen : classesNavBar.customNavbarMain} data-bs-theme="dark" >
-                <Container className="">
+                <Navbar expand="xl" className={isMenuOpen ? classesNavBar.customNavbarMenuOpen : classesNavBar.customNavbarMain} data-bs-theme="dark" >
+                    <Container className="">
 
-                    <Navbar.Brand className={`p-0 ${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
+                        <Navbar.Brand className={`p-0 ${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
 
-                    <Navbar.Toggle onClick={toggleMenu} aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
+                        <Navbar.Toggle onClick={toggleMenu} aria-controls="navbarScroll" />
+                        <Navbar.Collapse id="navbarScroll">
                             <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
+                                <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
 
-                                <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
 
-                                <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
-                                <Nav.Link className={classesNavBar.customNavLink} href="#pricing">
-                                    <IconBasket />
-                                </Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">
+                                        <IconBasket />
+                                    </Nav.Link>
+                                </Nav>
                             </Nav>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
         </>
         )
     }
@@ -74,25 +74,57 @@ export const NavBar = () => {
     if (isMain) {
         return (
             <>
-            <Navbar className={classesNavBar.customNavbarMain} data-bs-theme="dark" >
-                <Container className="d-flex justify-content-around">
-                        <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
-                            <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
-                        </Nav>
+                <Navbar className={classesNavBar.customNavbarMain} data-bs-theme="dark" >
+                    <Container className="d-flex justify-content-around">
+                            <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
+                                <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+                            </Nav>
 
-                        <Navbar.Brand className={`${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
+                            <Navbar.Brand className={`${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
 
-                        <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
-                            <Nav.Link className={classesNavBar.customNavLink}  href="#home">Доставка и оплата</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink}  href="#features">FAQ</Nav.Link>
-                            <Nav.Link className={classesNavBar.customNavLink}  href="#pricing">
-                                <IconBasket />
-                            </Nav.Link>
-                        </Nav>
-                </Container>
-            </Navbar>
+                            <Nav className={`mo-auto gap-3 ${classesNavBar.customNav}`}>
+                                <Nav.Link className={classesNavBar.customNavLink}  href="#home">Доставка и оплата</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink}  href="#features">FAQ</Nav.Link>
+                                <Nav.Link className={classesNavBar.customNavLink}  href="#pricing">
+                                    <IconBasket />
+                                </Nav.Link>
+                            </Nav>
+                    </Container>
+                </Navbar>
+            </>
+        )
+    }
+
+
+    if (sizeWindow < 1200 && !isMain) {
+        return (
+            <>
+                <Navbar expand="xl" className={isMenuOpen ? classesNavBar.customNavbarMenuOpen : classesNavBar.customNavbar} data-bs-theme="dark" >
+                    <Container className="">
+
+                        <Navbar.Brand className={`p-0 ${classesNavBar.logo}`} onClick={() => navigate(MAIN_ROUTE)}><Logo/></Navbar.Brand>
+
+                        <Navbar.Toggle onClick={toggleMenu} aria-controls="navbarScroll" />
+                        <Navbar.Collapse id="navbarScroll">
+                            <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
+                                <Nav className={`d-flex  ${classesNavBar.customContainerNav}`}>
+
+                                    <Nav.Link className={classesNavBar.customNavLink} onClick={() => navigate(STORE_ROUTE)}>Магазин</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">О бренде</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">Контакты</Nav.Link>
+
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#home">Доставка и оплата</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#features">FAQ</Nav.Link>
+                                    <Nav.Link className={classesNavBar.customNavLink} href="#pricing">
+                                        <IconBasket />
+                                    </Nav.Link>
+                                </Nav>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
         </>
         )
     }
