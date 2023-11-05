@@ -11,11 +11,11 @@ export const Shope = () => {
   return (
         <Container>
             <CustomContainer>
-                <Row>
+                <Row lg={2}>
                     <Col lg={2}>
                             <FilterAndSort/>
                     </Col> 
-                    <Col>
+                    <Col lg={10}>
                         <ListCard/>
                     </Col>
                 </Row>
