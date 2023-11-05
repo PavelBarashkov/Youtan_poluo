@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Filter } from '../../../../components/Filter/Filter'
 import { Sort } from '../../../../components/Sort/Sort'
 import classes from './filterAndSort.module.css'
+import { Accordion } from 'react-bootstrap'
 
 export const FilterAndSort = () => {
     const types = [{name: 'Рубашка'}, {name: 'Палтье'}];
@@ -18,6 +19,22 @@ export const FilterAndSort = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    if(sizeWindow < 992) {
+        return (
+            <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                    <Accordion.Header>Фильтры</Accordion.Header>
+                        <Accordion.Body>
+                            <aside className={classes.container}>
+                                <Filter types={types}/>
+                                <Sort/>
+                            </aside>
+                        </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
+        )
+    }
 
   return (
     <aside className={classes.container}>
