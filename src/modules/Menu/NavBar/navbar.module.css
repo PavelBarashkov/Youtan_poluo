@@ -1,10 +1,17 @@
- .customNavbar {
+ .customNavbarMain {
     position: absolute;
     z-index: 2;
     width: 100%;
     transition: background-color .2s;
     background-color: rgba(150, 158, 145, 0.7);
 }
+
+.customNavbar {
+    width: 100%;
+    transition: background-color .2s;
+    background-color: rgba(150, 158, 145, 1);
+}
+
 
 .customNavbarMenuOpen {
     position: absolute;
@@ -13,6 +20,9 @@
     background-color: rgba(150, 158, 145, 1);
 }
 
+.logo {
+    cursor: pointer;
+}
 
 
 .customNav{
@@ -47,7 +57,7 @@
 }
 
 @media (max-width: 540px) {
-    .customNavbar {
+    .customNavbarMain {
         position: absolute;
         background-color: rgba(150, 158, 145, 1);
 
