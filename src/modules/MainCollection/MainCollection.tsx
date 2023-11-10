@@ -26,13 +26,20 @@ export const MainCollection = () => {
                             {error ? (
                                 <div>{error}</div>
                             ) : (
-                                <ListCard cards={cards}/> 
+                                <>
+                                    {cards ? (
+                                        <ListCard cards={cards}/> 
+                                    ) : (
+                                        <div>Пусто</div>
+                                    )}
+                                
+                                </>
                             )}
                         </>
                     )  
                 }
             </CustomContainer>
-            <Btn/> {/*Сюда передадим пропс функцию обработчик при нажатии на кнопку*/}
+            <Btn/> 
         </>
     )
 }
