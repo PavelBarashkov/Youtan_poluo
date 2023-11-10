@@ -6,7 +6,7 @@ import { Titile } from '../../UI/Title/Title'
 export const InfoBlock = () => {
   return ( 
     <Container>
-        <section className={classes.container}>
+        <section className={classes.container} id='info'>
             <div className={classes.header_info}>
                 <Titile>О бренде</Titile>
                 <p className={classes.header_info_text}>
