@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 
 export const MainCollection = () => {
     const dispatch = useAppDispatch();
-    const { cards, loading, error } = useSelector((state: any) =>  state.cards)
+    const { cards, loading, error } = useSelector((state: any) =>  state.cardsFavorite)
 
     useEffect(() => {
         dispatch(fetchCard());
