@@ -22,7 +22,7 @@ export const FilterAndSort = () => {
 
     if(sizeWindow < 992) {
         return (
-            <Accordion defaultActiveKey="0">
+            <Accordion>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Фильтры</Accordion.Header>
                         <Accordion.Body>

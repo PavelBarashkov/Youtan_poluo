@@ -4,10 +4,15 @@ import classesSizeList from './sizeList.module.css'
 
 export const SizeList = ({sizes}: any) => {
   return (
-    <div className={classesSizeList.container}>
-        {sizes.map((size: any) => (
-            <SizeItem size={size}/>
-        ))}
-    </div>
+    <>
+        {sizes && (
+            <div className={classesSizeList.container}>
+                {sizes.map((size: any) => (
+                    <SizeItem key={size} size={size}/>
+                ))}
+            </div>
+        )}
+    </>
+
   )
 }
