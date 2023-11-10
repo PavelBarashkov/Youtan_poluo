@@ -1,56 +1,27 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchCards } from '../../API/fetchCards';
 
-interface Image {
-    url: string; 
-    id: number; 
-}
 
-interface Size {
-    name: string; 
-    id: number;
-}
 
-interface Product {
-    id: number;
-    modelId: number; 
-    compound: string;
-    createdAt: string; 
-    updatedAt: string; 
-    sizes: Size[];
-}
-
-interface ModelProduct {
-    id: number;
-    cardId: number; 
-    color: string;
-    description: string; 
-    createdAt: string; 
-    updatedAt: string; 
-    productId: number; 
-    images: Image[]; 
-    product: Product; 
-}
-
-interface MainProduct {
-    id?: number; 
-    name?: string;
-    price?: number; 
-    favorite?: boolean; 
-    createdAt?: string; 
-    updatedAt?: string; 
-    "model-products"?: ModelProduct[]; 
-}
 interface CardsState {
-    cards: MainProduct,
+    cards?: {
+        cardId?: number,
+        modelId?: number,
+        name?: string,
+        price?: number,
+        colors?: string[],
+        sizes?: string[],
+        imgs?: string[]
+    },
     loading: boolean,
     error: string,
+    
 }
 
 const initialState: CardsState = {
     cards: {},
     loading: false,
-    error: ''
+    error: '',
 }
   
 

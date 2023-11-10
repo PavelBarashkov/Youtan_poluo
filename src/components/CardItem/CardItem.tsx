@@ -6,11 +6,11 @@ import { ColorList } from '../ColorList/ColorList';
 import { SizeList } from '../SizeList/SizeList';
 import { AllSizes } from '../../helpers/AllSizes';
 import { AllColors } from '../../helpers/AllColors';
-
+import './CardItem.css'
 
 export const CardItem = ({card}: any) => {
-    const colors = AllColors(card);
-    const sizes = AllSizes(card);
+    // const colors = AllColors(card);
+    const sizes = AllSizes(card.sizes);
 
   return (
     <Col lg={4} sm={6} className={classesCardItem.col} >
@@ -22,12 +22,12 @@ export const CardItem = ({card}: any) => {
                 >
                     <Carousel.Item className={classesCardItem.item}>
                     <div className={classesCardItem.carousel_image} >
-                        <img className={classesCardItem.img} src={photo} alt="Youtan Poluo" />
+                        <img className={classesCardItem.img} src={card?.imgs[0]} alt="Youtan Poluo" />
                     </div>
                     </Carousel.Item>
                     <Carousel.Item>
                     <div className={classesCardItem.carousel_image} >
-                        <img className={classesCardItem.img} src={photo} alt="Youtan Poluo" />
+                        <img className={classesCardItem.img} src={card?.imgs[1]} alt="Youtan Poluo" />
                     </div>
                     </Carousel.Item>
 
@@ -39,7 +39,7 @@ export const CardItem = ({card}: any) => {
                         {card?.price} &#8381;
                     </Card.Text >
                     <div className={classesCardItem.card_info}>
-                        <ColorList colors={colors}/>
+                        <ColorList colors={card.colors}/>
                         <SizeList sizes={sizes}/>
                     </div>
                     
