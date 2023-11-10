@@ -32,6 +32,7 @@
 .customNav{
     font-size: 18px;
     --bs-navbar-color: rgba(255, 255, 255);
+    align-items: center;
 
 }
 .customNavLink:hover::after{
@@ -40,7 +41,8 @@
     position: absolute;
     left: 4px;
     right: 4px;
-    bottom: 7px;
+    bottom: -2px;
+
 
     display: block;
     height: 3px;
@@ -51,11 +53,33 @@
 .customNavLink {
     color: #ffff;
     position: relative;
+    text-decoration: none;
+}
+
+.customNavLink_active {
+    font-weight: 400;
+    position: relative;
+}
+
+
+.customNavLink_active::after{
+    content: "";
+
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: -2px;
+
+    display: block;
+    height: 3px;
+    background-color: #C4C4C4;
+    border-radius: 50px;
 }
 
 .customContainerNav {
     display: flex;
     align-items: center;
+    row-gap: 15px;
     height: 100vh;
     margin-top: 20px;
 }
