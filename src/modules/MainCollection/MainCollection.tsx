@@ -8,38 +8,32 @@ import { fetchCard } from './store/slice/cardsSlice'
 import { useSelector } from 'react-redux'
 
 export const MainCollection = () => {
-    const dispatch = useAppDispatch();
-    const { cards, loading, error } = useSelector((state: any) =>  state.cardsFavorite)
+  const dispatch = useAppDispatch();
+  const { cards, loading, error } = useSelector(
+    (state: any) => state.cardsFavorite
+  );
 
-    useEffect(() => {
-        dispatch(fetchCard());
-    }, [])
+  useEffect(() => {
+    dispatch(fetchCard());
+  }, []);
 
-    return (
-        <>
-            <CustomContainer>
-                <Title>Коллекция Youtan Poluo</Title>
-                {loading ? (
-                        <div>Загрузка</div> 
-                    ) : (
-                        <>
-                            {error ? (
-                                <div>{error}</div>
-                            ) : (
-                                <>
-                                    {cards ? (
-                                        <ListCard cards={cards}/> 
-                                    ) : (
-                                        <div>Пусто</div>
-                                    )}
-                                
-                                </>
-                            )}
-                        </>
-                    )  
-                }
-            </CustomContainer>
-            <Btn/> 
-        </>
-    )
+  return (
+    <>
+      <CustomContainer>
+        <Title>Коллекция Youtan Poluo</Title>
+        {loading ? (
+          <div>Загрузка</div>
+        ) : (
+          <>
+            {error ? (
+              <div>{error}</div>
+            ) : (
+              <>{cards ? <ListCard cards={cards} /> : <div>Пусто</div>}</>
+            )}
+          </>
+        )}
+      </CustomContainer>
+      <Btn />
+    </>
+  );
 }

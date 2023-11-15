@@ -16,34 +16,31 @@ export const Shope = () => {
     }, [])
 
   return (
-        <Container>
-            <CustomContainer>
-                <Row className='g-4'>
-                    <>
-                        {loading ? (
-                            <div>Загрузка</div>
-                        ) : (
-                            <>
-                                {error ? (
-                                    <div>{error}</div>
-                                ) : (
-                                    <>
-                                        <Col lg={3} xl={2}>
-                                            <FilterAndSort/>
-                                        </Col> 
-                                        <Col lg={9} xl={10}>
-                                            <ListCard cards={cards}/>
-                                        </Col>
-                                    </>
-
-                                )}
-                            </>
-                        )}
-                    </>
-                    
-                </Row>
-            </CustomContainer>
-        </Container>
-     
-  )
+    <Container>
+      <CustomContainer>
+        <Row className="g-4">
+          <>
+            {loading ? (
+              <div>Загрузка</div>
+            ) : (
+              <>
+                {error ? (
+                  <div>{error}</div>
+                ) : (
+                  <>
+                    <Col lg={3} xl={2}>
+                      <FilterAndSort />
+                    </Col>
+                    <Col lg={9} xl={10}>
+                      <ListCard cards={cards} />
+                    </Col>
+                  </>
+                )}
+              </>
+            )}
+          </>
+        </Row>
+      </CustomContainer>
+    </Container>
+  );
 }

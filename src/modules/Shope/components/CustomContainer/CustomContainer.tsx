@@ -8,6 +8,6 @@ export const CustomContainer = ({children}: ICustomContainerProps) => {
   return (
     <section className={classes.container}>
         {children}
-    </section>
+    </section> 
   )
 }
