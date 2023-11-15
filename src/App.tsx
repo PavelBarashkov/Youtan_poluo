@@ -3,8 +3,8 @@ import './App.css';
 import './style/MainSlider.css';
 import { AppRouter } from './components/AppRouter';
 import { BrowserRouter } from 'react-router-dom';
-import { Menu } from './modules/Menu';
 import { Footer } from './modules/Footer/Footer';
+import { Menu } from './modules/Menu';
 
 function App() {
     return (
