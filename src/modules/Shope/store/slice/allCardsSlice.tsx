@@ -50,7 +50,7 @@ export const allCardsSlice = createSlice({
             state.error = '';
         })
         .addCase(fetchCard.fulfilled, (state, action) => {
-            state.cards = action.payload;
+            state.cards = action.payload.rows;
             state.loading = false;
             state.error = '';
         })

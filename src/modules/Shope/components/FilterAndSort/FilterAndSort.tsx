@@ -5,7 +5,7 @@ import classes from './filterAndSort.module.css'
 import { Accordion } from 'react-bootstrap'
 
 export const FilterAndSort = () => {
-    const types = [{name: 'Рубашка'}, {name: 'Палтье'}];
+    const types = [{id: 1, name: 'Рубашка'}, {id: 2, name: 'Палтье'}];
     const [sizeWindow, setSizeWindow] = useState<number>(window.innerWidth);
 
     useEffect(() => {

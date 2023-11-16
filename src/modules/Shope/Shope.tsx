@@ -1,19 +1,19 @@
-import { Col, Container, Row } from 'react-bootstrap'
-import { ListCard } from '../../components/ListCard/ListCard'
-import { FilterAndSort } from './components/FilterAndSort/FilterAndSort'
-import { CustomContainer } from './components/CustomContainer/CustomContainer'
-import { useAppDispatch } from '../../app/hooks'
-import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { fetchCard } from './store/slice/allCardsSlice'
+import { Col, Container, Row } from "react-bootstrap";
+import { ListCard } from "../../components/ListCard/ListCard";
+import { FilterAndSort } from "./components/FilterAndSort/FilterAndSort";
+import { CustomContainer } from "./components/CustomContainer/CustomContainer";
+import { useAppDispatch } from "../../app/hooks";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCard } from "./store/slice/allCardsSlice";
 
 export const Shope = () => {
-    const dispatch = useAppDispatch();
-    const { cards, loading, error } = useSelector((state: any) =>  state.allCards)
+  const dispatch = useAppDispatch();
+  const { cards, loading, error } = useSelector((state: any) => state.allCards);
 
-    useEffect(() => {
-        dispatch(fetchCard());
-    }, [])
+  useEffect(() => {
+    dispatch(fetchCard());
+  }, []);
 
   return (
     <Container>
@@ -32,7 +32,7 @@ export const Shope = () => {
                       <FilterAndSort />
                     </Col>
                     <Col lg={9} xl={10}>
-                      <ListCard cards={cards} />
+                      {/* <ListCard cards={cards} /> */}
                     </Col>
                   </>
                 )}
@@ -43,4 +43,4 @@ export const Shope = () => {
       </CustomContainer>
     </Container>
   );
-}
+};
