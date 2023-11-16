@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchTypes = async () => {
   const response = await axios.get(
-    `http://localhost:5000/api/type/product/all`
+    `${process.env.REACT_APP_API_URL}/api/type/product/all`
   );
   return response;
 };

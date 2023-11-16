@@ -12,7 +12,7 @@ export const Shope = () => {
   const { cards, loading, error } = useSelector((state: any) => state.allCards);
 
   useEffect(() => {
-    dispatch(fetchCard());
+    // dispatch(fetchCard());
   }, []);
 
   return (
