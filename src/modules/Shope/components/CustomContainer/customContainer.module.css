@@ -1,10 +1,11 @@
 .container {
   margin-top: 119px;
-  margin-bottom: 40px;
+  height: calc(100vh - 233px);
 }
 
 @media (max-width: 992px) {
   .container {
     margin-top: 75px;
+    height: calc(100vh - 189px);
   }
 }
