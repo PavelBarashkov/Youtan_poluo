@@ -15,6 +15,7 @@ export const fetchCards = async (
         page,
         limit,
       },
+      
     }
   );
   return response;

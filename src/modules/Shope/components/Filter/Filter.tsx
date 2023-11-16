@@ -13,7 +13,7 @@ export const Filter = ({ types }: any) => {
       <div className={classes.filter_title}>Фильтр:</div>
       <ToggleButtonGroup
         className={classes.filter_btns}
-        type="radio"
+        type="checkbox"
         name="options"
       >
         {types.map((item: any, indx: number) => (

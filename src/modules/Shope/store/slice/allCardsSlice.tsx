@@ -13,7 +13,7 @@ interface ICard {
 
 interface CardsState {
   cards: ICard[];
-  typeId?: number;
+  typeId?: number[];
   bySort: string;
   page: number;
   loading: boolean;
@@ -23,6 +23,7 @@ interface CardsState {
 const initialState: CardsState = {
   cards: [],
   page: 1,
+  typeId: [],
   bySort: "default",
   loading: false,
   error: "",
@@ -47,13 +48,18 @@ export const fetchCard = createAsyncThunk(
     }
   }
 );
-
+const params = (arr: any, number:any) => {
+    if(arr.includes(number)) {
+        return arr.splice(arr.indexOf(number), 1)
+    }
+    arr.push(number)
+}
 export const allCardsSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
     setTypeId: (state, action) => {
-      state.typeId = action.payload;
+        params(state.typeId, action.payload)
     },
     setBySort: (state, action) => {
       state.bySort = action.payload;
