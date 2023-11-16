@@ -32,7 +32,7 @@ export const Shope = () => {
                       <FilterAndSort />
                     </Col>
                     <Col lg={9} xl={10}>
-                      {/* <ListCard cards={cards} /> */}
+                      <ListCard cards={cards} />
                     </Col>
                   </>
                 )}
