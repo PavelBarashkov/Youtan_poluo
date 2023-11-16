@@ -1,7 +1,10 @@
+import { useAppDispatch } from "../../../../app/hooks";
+import { risePrice } from "../../store/slice/allCardsSlice";
 import classes from "./sort.module.css";
 import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 
 export const Sort = () => {
+    const dispatch = useAppDispatch();
   return (
     <div className={classes.sort_container}>
       <div className={classes.sort_title}>Сортировать:</div>
@@ -18,7 +21,7 @@ export const Sort = () => {
           <ToggleButton className={classes.btn} id={"tbg-radio-2"} value={2}>
             По новизне
           </ToggleButton>
-          <ToggleButton className={classes.btn} id={"tbg-radio-3"} value={3}>
+          <ToggleButton onClick={() => dispatch(risePrice())} className={classes.btn} id={"tbg-radio-3"} value={3}>
             По возрастанию цены
           </ToggleButton>
           <ToggleButton className={classes.btn} id={"tbg-radio-4"} value={4}>

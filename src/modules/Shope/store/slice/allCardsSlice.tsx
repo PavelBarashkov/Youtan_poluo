@@ -1,16 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCards } from "../../API/fetchCards";
 
+interface ICard {
+  cardId?: number;
+  modelId?: number;
+  name?: string;
+  price?: number;
+  colors?: string[];
+  sizes?: string[];
+  imgs?: string[];
+}
+
 interface CardsState {
-  cards?: {
-    cardId?: number;
-    modelId?: number;
-    name?: string;
-    price?: number;
-    colors?: string[];
-    sizes?: string[];
-    imgs?: string[];
-  };
+  cards: ICard[];
   typeId?: number;
   page: number;
   loading: boolean;
@@ -18,7 +20,7 @@ interface CardsState {
 }
 
 const initialState: CardsState = {
-  cards: {},
+  cards: [],
   page: 1,
   loading: false,
   error: "",
@@ -50,6 +52,10 @@ export const allCardsSlice = createSlice({
     setTypeId: (state, action) => {
       state.typeId = action.payload;
     },
+    risePrice: (state) => {
+      const cardsSort = state.cards.sort((a: any, b: any) => a.price - b.price);
+      state.cards = cardsSort;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -70,5 +76,5 @@ export const allCardsSlice = createSlice({
   },
 });
 
-export const { setTypeId } = allCardsSlice.actions;
+export const { setTypeId, risePrice } = allCardsSlice.actions;
 export default allCardsSlice.reducer;

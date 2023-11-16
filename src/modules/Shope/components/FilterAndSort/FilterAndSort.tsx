@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Filter } from "../../../../components/Filter/Filter";
-import { Sort } from "../../../../components/Sort/Sort";
+import { Filter } from "../Filter/Filter";
+import { Sort } from "../Sort/Sort";
 import classes from "./filterAndSort.module.css";
 import { Accordion } from "react-bootstrap";
 import { useAppDispatch } from "../../../../app/hooks";

@@ -1,5 +1,5 @@
-import { useAppDispatch } from "../../app/hooks";
-import { setTypeId } from "../../modules/Shope/store/slice/allCardsSlice";
+import { useAppDispatch } from "../../../../app/hooks";
+import { setTypeId } from "../../store/slice/allCardsSlice";
 import classes from "./filter.module.css";
 import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 
