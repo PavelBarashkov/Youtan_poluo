@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const fetchCards = async (
   typeId: number | undefined,
+  bySort: string,
   page: number,
   limit: number = 5
 ) => {
@@ -10,6 +11,7 @@ export const fetchCards = async (
     {
       params: {
         typeId,
+        bySort,
         page,
         limit,
       },

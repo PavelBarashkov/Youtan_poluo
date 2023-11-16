@@ -14,6 +14,7 @@ interface ICard {
 interface CardsState {
   cards: ICard[];
   typeId?: number;
+  bySort: string;
   page: number;
   loading: boolean;
   error: string;
@@ -22,12 +23,14 @@ interface CardsState {
 const initialState: CardsState = {
   cards: [],
   page: 1,
+  bySort: "default",
   loading: false,
   error: "",
 };
 
 interface fecthCardsProps {
   typeId?: number;
+  bySort: string;
   page: number;
   limit?: number;
 }
@@ -35,9 +38,9 @@ interface fecthCardsProps {
 export const fetchCard = createAsyncThunk(
   "cars/fetchCards",
   async (params: fecthCardsProps) => {
-    const { typeId, page, limit } = params;
+    const { typeId, bySort, page, limit } = params;
     try {
-      const response = await fetchCards(typeId, page, limit);
+      const response = await fetchCards(typeId, bySort, page, limit);
       return response.data;
     } catch (e) {
       console.log(e);
@@ -52,9 +55,8 @@ export const allCardsSlice = createSlice({
     setTypeId: (state, action) => {
       state.typeId = action.payload;
     },
-    risePrice: (state) => {
-      const cardsSort = state.cards.sort((a: any, b: any) => a.price - b.price);
-      state.cards = cardsSort;
+    setBySort: (state, action) => {
+      state.bySort = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -76,5 +78,5 @@ export const allCardsSlice = createSlice({
   },
 });
 
-export const { setTypeId, risePrice } = allCardsSlice.actions;
+export const { setTypeId, setBySort } = allCardsSlice.actions;
 export default allCardsSlice.reducer;

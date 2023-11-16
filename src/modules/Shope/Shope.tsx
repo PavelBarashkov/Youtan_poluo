@@ -9,16 +9,17 @@ import { fetchCard } from "./store/slice/allCardsSlice";
 
 export const Shope = () => {
   const dispatch = useAppDispatch();
-  const { cards, typeId, page, loading, error } = useSelector(
+  const { cards, typeId, bySort, page, loading, error } = useSelector(
     (state: any) => state.allCards
   );
   const params = {
     typeId,
+    bySort,
     page,
   };
   useEffect(() => {
     dispatch(fetchCard(params));
-  }, [typeId]);
+  }, [typeId, bySort]);
 
   return (
     <Container>
