@@ -4,10 +4,10 @@ export const fetchCards = async (
   typeId: number | undefined,
   bySort: string,
   page: number,
-  limit: number = 5
+  limit: number = 1
 ) => {
   const response = await axios.get(
-    `${process.env.REACT_APP_API_URL}/api/card/mini`,
+    `${process.env.REACT_APP_API_URL}/api/card/model/mini`,
     {
       params: {
         typeId,

@@ -17,7 +17,7 @@ export const CardItem = ({ card }: any) => {
       <Card className={classesCardItem.card}>
         <Card.Header className={classesCardItem.header}>
           <Carousel indicators={false} interval={null}>
-            {/* <Carousel.Item className={classesCardItem.item}> //*! Надо поравить обработку массива с фото
+            {/* <Carousel.Item className={classesCardItem.item}> 
               <div className={classesCardItem.carousel_image}>
                 <img
                   className={classesCardItem.img}

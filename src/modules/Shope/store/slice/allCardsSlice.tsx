@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCards } from "../../API/fetchCards";
+import { getPageCount } from "../../../helpers/pages";
 
 interface ICard {
   cardId?: number;
@@ -16,6 +17,8 @@ interface CardsState {
   typeId?: number[];
   bySort: string;
   page: number;
+  limit: number;
+  totalPages: number;
   loading: boolean;
   error: string;
 }
@@ -23,6 +26,8 @@ interface CardsState {
 const initialState: CardsState = {
   cards: [],
   page: 1,
+  totalPages: 0,
+  limit: 1,
   typeId: [],
   bySort: "default",
   loading: false,
@@ -48,21 +53,24 @@ export const fetchCard = createAsyncThunk(
     }
   }
 );
-const params = (arr: any, number:any) => {
-    if(arr.includes(number)) {
-        return arr.splice(arr.indexOf(number), 1)
-    }
-    arr.push(number)
-}
+const params = (arr: any, number: any) => {
+  if (arr.includes(number)) {
+    return arr.splice(arr.indexOf(number), 1);
+  }
+  arr.push(number);
+};
 export const allCardsSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
     setTypeId: (state, action) => {
-        params(state.typeId, action.payload)
+      params(state.typeId, action.payload);
     },
     setBySort: (state, action) => {
       state.bySort = action.payload;
+    },
+    setPage: (state) => {
+      state.page = state.page + 1;
     },
   },
   extraReducers: (builder) => {
@@ -72,10 +80,24 @@ export const allCardsSlice = createSlice({
         state.error = "";
       })
       .addCase(fetchCard.fulfilled, (state, action) => {
-        state.cards = action.payload.rows;
+        const newCards = action.payload.rows;
+
+        const duplicateCheck = newCards.some((newCard: any) =>
+          state.cards.some(
+            (existingCard) => existingCard.modelId === newCard.modelId
+          )
+        );
+
+        if (!duplicateCheck) {
+          state.cards = state.cards.concat(newCards);
+        }
+
+        const totalCount = action.payload.count;
+        state.totalPages = getPageCount(totalCount, state.limit);
         state.loading = false;
         state.error = "";
       })
+
       .addCase(fetchCard.rejected, (state, action) => {
         console.log("Error:", action.payload);
         state.loading = false;
@@ -84,5 +106,5 @@ export const allCardsSlice = createSlice({
   },
 });
 
-export const { setTypeId, setBySort } = allCardsSlice.actions;
+export const { setTypeId, setBySort, setPage } = allCardsSlice.actions;
 export default allCardsSlice.reducer;
