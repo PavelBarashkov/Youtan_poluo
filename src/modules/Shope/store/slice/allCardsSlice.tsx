@@ -68,10 +68,14 @@ export const allCardsSlice = createSlice({
       params(state.typeId, action.payload);
     },
     setBySort: (state, action) => {
-      state.page = 1;
-      state.totalPages = 0;
-      state.cards = [];
-      state.bySort = action.payload;
+      if (state.bySort === action.payload) {
+        state.bySort = action.payload;
+      } else {
+        state.page = 1;
+        state.totalPages = 0;
+        state.cards = [];
+        state.bySort = action.payload;
+      }
     },
     setPage: (state) => {
       state.page = state.page + 1;
