@@ -45,12 +45,8 @@ export const fetchCard = createAsyncThunk(
   "cars/fetchCards",
   async (params: fetchCardsProps) => {
     const { bySort, page, typeId } = params;
-    try {
-      const response = await fetchCards(bySort, page, typeId);
-      return response.data;
-    } catch (e) {
-      console.log(e);
-    }
+    const response = await fetchCards(bySort, page, typeId);
+    return response.data;
   }
 );
 
@@ -101,7 +97,23 @@ export const allCardsSlice = createSlice({
       .addCase(fetchCard.rejected, (state, action) => {
         console.log("Error:", action.payload);
         state.loading = false;
-        state.error = action.payload as string;
+
+        if (action.payload instanceof Error) {
+          state.error = action.payload.message;
+        } else if (typeof action.payload === "string") {
+          try {
+            const errorData = JSON.parse(action.payload);
+            if (errorData.message) {
+              state.error = errorData.message;
+            } else {
+              state.error = "Произошла ошибка при загрузке.";
+            }
+          } catch (error) {
+            state.error = "Произошла ошибка при загрузке.";
+          }
+        } else {
+          state.error = "Произошла ошибка при загрузке.";
+        }
       });
   },
 });

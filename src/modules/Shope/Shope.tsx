@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import { fetchCard, setPage } from "./store/slice/allCardsSlice";
 import { useObserver } from "../../hooks/useObserver";
+import { MySpinner } from "../../UI/MySpinner/MySpinner";
 
 export const Shope = () => {
   const dispatch = useAppDispatch();
@@ -35,8 +36,8 @@ export const Shope = () => {
             <FilterAndSort />
           </Col>
           <>
-            {!loading && error && <div>{error}</div>}
             <Col lg={9} xl={10}>
+              {!loading && error && <div>{error}</div>}
               <ListCard cards={cards} />
             </Col>
             <div ref={lastElement} style={{ height: 20 }} />
@@ -49,7 +50,7 @@ export const Shope = () => {
                   marginTop: 50,
                 }}
               >
-                <Spinner />
+                <MySpinner />
               </div>
             )}
           </>

@@ -46,7 +46,7 @@ export const typesSlice = createSlice({
         state.loading = false;
 
         if (action.payload instanceof Error) {
-          state.error = action.payload.message; 
+          state.error = action.payload.message;
         } else if (typeof action.payload === "string") {
           try {
             const errorData = JSON.parse(action.payload);
