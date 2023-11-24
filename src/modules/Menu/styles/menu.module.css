@@ -31,8 +31,9 @@
 
 .customNav{
     font-size: 18px;
-    --bs-navbar-color: rgba(255, 255, 255);
     align-items: center;
+    column-gap: 30px;
+    --bs-navbar-color: rgba(255, 255, 255);
 
 }
 .customNavLink:hover::after{
