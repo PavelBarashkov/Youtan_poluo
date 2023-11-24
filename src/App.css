@@ -1,8 +1,7 @@
-.App {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
+.app_container {
+    display: flex;
+    flex-direction: column;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,4 +22,9 @@
   font-size: calc(10px + 2vmin);
 }
 
-
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
