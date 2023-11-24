@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
-import { CustomContainer } from './components/CustomContainer/CustomContainer'
-import { Title } from './components/Title/Title'
-import { ListCard } from '../../components/ListCard/ListCard'
-import { Btn } from './components/Btn/Btn'
-import { useAppDispatch } from '../../app/hooks'
-import { fetchCard } from './store/slice/cardsSlice'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { CustomContainer } from "./components/CustomContainer/CustomContainer";
+import { Title } from "./components/Title/Title";
+import { ListCard } from "../../components/ListCard/ListCard";
+import { Btn } from "./components/Btn/Btn";
+import { useAppDispatch } from "../../app/hooks";
+import { fetchCard } from "./store/slice/cardsSlice";
+import { useSelector } from "react-redux";
+import { MySpinner } from "../../UI/MySpinner/MySpinner";
 
 export const MainCollection = () => {
   const dispatch = useAppDispatch();
@@ -22,18 +23,12 @@ export const MainCollection = () => {
       <CustomContainer>
         <Title>Коллекция Youtan Poluo</Title>
         {loading ? (
-          <div>Загрузка</div>
+          <MySpinner />
         ) : (
-          <>
-            {error ? (
-              <div>{error}</div>
-            ) : (
-              <>{cards ? <ListCard cards={cards} /> : <div>Пусто</div>}</>
-            )}
-          </>
+          <>{error ? <div>{error}</div> : <ListCard cards={cards} />}</>
         )}
       </CustomContainer>
       <Btn />
     </>
   );
-}
+};
