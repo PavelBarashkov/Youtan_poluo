@@ -1,19 +1,17 @@
-import React from "react";
 import { Row } from "react-bootstrap";
 import { CardItem } from "../CardItem/CardItem";
 
 export const ListCard = ({ cards }: any) => {
+  if (!cards.length) {
+    return (
+        <div>Пусто</div>
+    )
+  }
   return (
     <Row className="g-4 d-flex ">
-      {cards && cards.length > 0 ? (
-        <>
-          {cards.map((card: any) => (
-            <CardItem key={card.id} card={card} />
-          ))}
-        </>
-      ) : (
-        <div>Пусто</div>
-      )}
+      {cards.map((card: any) => (
+        <CardItem key={card.modelId} card={card} />
+      ))}
     </Row>
   );
 };

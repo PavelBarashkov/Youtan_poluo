@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { ListCard } from "../../components/ListCard/ListCard";
 import { FilterAndSort } from "./components/FilterAndSort/FilterAndSort";
 import { CustomContainer } from "./components/CustomContainer/CustomContainer";
@@ -10,22 +10,22 @@ import { useObserver } from "../../hooks/useObserver";
 
 export const Shope = () => {
   const dispatch = useAppDispatch();
+  const lastElement = useRef<HTMLDivElement>(null);
   const { cards, typeId, bySort, page, loading, error, totalPages } =
     useSelector((state: any) => state.allCards);
-  const lastElement = useRef<HTMLDivElement>(null);
-
-  const params = {
-    typeId,
-    bySort,
-    page,
-  };
 
   useObserver(lastElement, page < totalPages, loading, () => {
     dispatch(setPage());
   });
+
   useEffect(() => {
+    const params = {
+      bySort,
+      page,
+      typeId,
+    };
     dispatch(fetchCard(params));
-  }, [typeId, bySort, page]);
+  }, [page, typeId, bySort, dispatch]);
 
   return (
     <Container>
@@ -35,35 +35,22 @@ export const Shope = () => {
             <FilterAndSort />
           </Col>
           <>
-            {loading ? (
-              <div>Загрузка</div>
-            ) : (
-              <>
-                {error ? (
-                  <div>{error}</div>
-                ) : (
-                  <>
-                    <Col lg={9} xl={10}>
-                      <ListCard cards={cards} />
-                    </Col>
-                    <div
-                      ref={lastElement}
-                      style={{ height: 20, background: "red" }}
-                    />
-                    {loading && (
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          marginTop: 50,
-                        }}
-                      >
-                        Загрузка
-                      </div>
-                    )}
-                  </>
-                )}
-              </>
+            {!loading && error && <div>{error}</div>}
+            <Col lg={9} xl={10}>
+              <ListCard cards={cards} />
+            </Col>
+            <div ref={lastElement} style={{ height: 20 }} />
+
+            {loading && (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: 50,
+                }}
+              >
+                <Spinner />
+              </div>
             )}
           </>
         </Row>

@@ -1,6 +1,28 @@
 import axios from "axios";
 
 export class Service {
+    // static async getAll(limit = 10, page = 1) {
+    //     const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+    //         params: {
+    //             _limit: limit,
+    //             _page: page
+    //         }
+    //     })
+    //     return response;
+    // }
+
+    // static async getAll(bySort: string, page: number, typeId?: number[] | undefined, limit: number = 3 ) {
+    //   const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/card/model/mini`, {
+    //       params: {
+    //         typeId,
+    //         bySort,
+    //         page,
+    //         limit,
+    //       },
+    //     }
+    //   );
+    //   return response;
+    // }
 
     // static async sortGames(sort: string | null, platform: string | null, category: string | null, signal: any) {
     //     const response = await axios.get('https://free-to-play-games-database.p.rapidapi.com/api/games', {

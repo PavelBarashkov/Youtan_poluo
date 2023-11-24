@@ -3,13 +3,13 @@ import { fetchCards } from "../../API/fetchCards";
 import { getPageCount } from "../../../helpers/pages";
 
 interface ICard {
-  cardId?: number;
-  modelId?: number;
-  name?: string;
-  price?: number;
-  colors?: string[];
-  sizes?: string[];
-  imgs?: string[];
+  cardId: number;
+  modelId: number;
+  name: string;
+  price: number;
+  colors: string[];
+  sizes: string[];
+  imgs: string[];
 }
 
 interface CardsState {
@@ -27,46 +27,53 @@ const initialState: CardsState = {
   cards: [],
   page: 1,
   totalPages: 0,
-  limit: 1,
+  limit: 3,
   typeId: [],
   bySort: "default",
   loading: false,
   error: "",
 };
 
-interface fecthCardsProps {
-  typeId?: number;
+interface fetchCardsProps {
   bySort: string;
   page: number;
-  limit?: number;
+  typeId?: number;
 }
 
 export const fetchCard = createAsyncThunk(
   "cars/fetchCards",
-  async (params: fecthCardsProps) => {
-    const { typeId, bySort, page, limit } = params;
+  async (params: fetchCardsProps) => {
+    const { bySort, page, typeId } = params;
     try {
-      const response = await fetchCards(typeId, bySort, page, limit);
+      const response = await fetchCards(bySort, page, typeId);
       return response.data;
     } catch (e) {
       console.log(e);
     }
   }
 );
+
 const params = (arr: any, number: any) => {
   if (arr.includes(number)) {
     return arr.splice(arr.indexOf(number), 1);
   }
   arr.push(number);
 };
+
 export const allCardsSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
     setTypeId: (state, action) => {
+      state.page = 1;
+      state.totalPages = 0;
+      state.cards = [];
       params(state.typeId, action.payload);
     },
     setBySort: (state, action) => {
+      state.page = 1;
+      state.totalPages = 0;
+      state.cards = [];
       state.bySort = action.payload;
     },
     setPage: (state) => {
@@ -80,24 +87,16 @@ export const allCardsSlice = createSlice({
         state.error = "";
       })
       .addCase(fetchCard.fulfilled, (state, action) => {
-        const newCards = action.payload.rows;
-
-        const duplicateCheck = newCards.some((newCard: any) =>
-          state.cards.some(
-            (existingCard) => existingCard.modelId === newCard.modelId
-          )
-        );
-
-        if (!duplicateCheck) {
-          state.cards = state.cards.concat(newCards);
+        if (state.page === 1) {
+          state.cards = action.payload.rows;
+        } else {
+          state.cards = [...state.cards, ...action.payload.rows];
         }
-
         const totalCount = action.payload.count;
         state.totalPages = getPageCount(totalCount, state.limit);
         state.loading = false;
         state.error = "";
       })
-
       .addCase(fetchCard.rejected, (state, action) => {
         console.log("Error:", action.payload);
         state.loading = false;

@@ -17,7 +17,7 @@ export const CardItem = ({ card }: any) => {
       <Card className={classesCardItem.card}>
         <Card.Header className={classesCardItem.header}>
           <Carousel indicators={false} interval={null}>
-            {/* <Carousel.Item className={classesCardItem.item}> 
+            <Carousel.Item className={classesCardItem.item}> 
               <div className={classesCardItem.carousel_image}>
                 <img
                   className={classesCardItem.img}
@@ -34,7 +34,7 @@ export const CardItem = ({ card }: any) => {
                   alt="Youtan Poluo"
                 />
               </div>
-            </Carousel.Item> */}
+            </Carousel.Item>
           </Carousel>
         </Card.Header>
         <Card.Body className={classesCardItem.body}>
