@@ -1,11 +1,12 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
-import productSlice from '../features/products/productSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { cardsSlice } from "../modules/MainCollection";
+import { allCardsSlice, typesSlice } from "../modules/Shope";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    product: productSlice
+    cardsFavorite: cardsSlice.reducer,
+    allCards: allCardsSlice.reducer,
+    types: typesSlice.reducer,
   },
 });
 

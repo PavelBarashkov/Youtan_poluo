@@ -1,13 +1,11 @@
-import React from 'react'
-import { Row } from 'react-bootstrap'
-import { CardItem } from '../CardItem/CardItem'
+import { Row } from "react-bootstrap";
+import { CardItem } from "../CardItem/CardItem";
 
-export const ListCard = () => {
+export const ListCard = ({ cards }: any) => {
   return (
-        <Row  className="g-4 d-flex ">
-            {Array.from({ length: 8 }).map((_, idx) => (
-                <CardItem/>
-            ))}
-        </Row>
-  )
-}
+    <Row className="g-4 d-flex ">
+      {cards &&
+        cards.map((card: any) => <CardItem key={card.modelId} card={card} />)}
+    </Row>
+  );
+};
