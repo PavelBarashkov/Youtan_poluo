@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Filter } from "../Filter/Filter";
 import { Sort } from "../Sort/Sort";
 import classes from "./filterAndSort.module.css";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Spinner } from "react-bootstrap";
 import { useAppDispatch } from "../../../../app/hooks";
 import { getTypes } from "../../store/slice/TypesSlice";
 import { useSelector } from "react-redux";
+import { MySpinner } from "../../../../UI/MySpinner/MySpinner";
 
 export const FilterAndSort = () => {
-  // const types = [{id: 1, name: 'Рубашка'}, {id: 2, name: 'Палтье'}];
   const dispatch = useAppDispatch();
   const [sizeWindow, setSizeWindow] = useState<number>(window.innerWidth);
   const { types, loading, error } = useSelector((state: any) => state.types);
@@ -36,7 +36,11 @@ export const FilterAndSort = () => {
           <Accordion.Header>Фильтры</Accordion.Header>
           <Accordion.Body>
             <aside className={classes.container}>
-              {loading ? <div>Загрузка</div> : <Filter types={types} />}
+              {loading ? (
+                <MySpinner/>
+              ) : (
+                <Filter types={types} />
+              )}
               <Sort />
             </aside>
           </Accordion.Body>
@@ -47,7 +51,17 @@ export const FilterAndSort = () => {
 
   return (
     <aside className={classes.container}>
-      {loading ? <div>Загрузка</div> : <Filter types={types} />}
+      {loading ? (
+        <MySpinner/>
+      ) : (
+        <>
+        {(!loading && error) ? (
+            <div>{error}</div>
+        )  : (
+            <Filter types={types} />
+        )}
+        </>
+      )}
       <Sort />
     </aside>
   );

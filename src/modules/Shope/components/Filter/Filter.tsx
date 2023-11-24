@@ -16,7 +16,7 @@ export const Filter = ({ types }: any) => {
         type="checkbox"
         name="options"
       >
-        {types.map((item: any, indx: number) => (
+        {types && types.map((item: any, indx: number) => (
           <ToggleButton
             key={item.id}
             onClick={() => handler(item?.id)}

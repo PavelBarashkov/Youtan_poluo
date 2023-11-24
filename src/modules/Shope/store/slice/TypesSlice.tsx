@@ -22,12 +22,8 @@ const initialState: TypesState = {
 };
 
 export const getTypes = createAsyncThunk("types/getTypes", async () => {
-  try {
-    const response = await fetchTypes();
-    return response.data;
-  } catch (e) {
-    console.log(e);
-  }
+  const response = await fetchTypes();
+  return response.data;
 });
 
 export const typesSlice = createSlice({
@@ -48,7 +44,23 @@ export const typesSlice = createSlice({
       .addCase(getTypes.rejected, (state, action) => {
         console.log("Error:", action.payload);
         state.loading = false;
-        state.error = action.payload as string;
+
+        if (action.payload instanceof Error) {
+          state.error = action.payload.message; 
+        } else if (typeof action.payload === "string") {
+          try {
+            const errorData = JSON.parse(action.payload);
+            if (errorData.message) {
+              state.error = errorData.message;
+            } else {
+              state.error = "Произошла ошибка при загрузке типов.";
+            }
+          } catch (error) {
+            state.error = "Произошла ошибка при загрузке типов.";
+          }
+        } else {
+          state.error = "Произошла ошибка при загрузке типов.";
+        }
       });
   },
 });
