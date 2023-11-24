@@ -23,28 +23,28 @@ const initialState: CardsState = {
   error: "",
 };
 
-export const fetchCard = createAsyncThunk("cars/fetchCards", async () => {
+export const fetchCardFavorite = createAsyncThunk("cardsFavorite/fetchCardFavorite", async () => {
     const response = await fetchCards();
     return response.data;
   
 });
 
 export const cardsSlice = createSlice({
-  name: "cards",
+  name: "cardsFavorite",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCard.pending, (state) => {
+      .addCase(fetchCardFavorite.pending, (state) => {
         state.loading = true;
         state.error = "";
       })
-      .addCase(fetchCard.fulfilled, (state, action) => {
+      .addCase(fetchCardFavorite.fulfilled, (state, action) => {
         state.cards = action.payload;
         state.loading = false;
         state.error = "";
       })
-      .addCase(fetchCard.rejected, (state, action) => {
+      .addCase(fetchCardFavorite.rejected, (state, action) => {
         console.log("Error:", action.payload);
         state.loading = false;
 

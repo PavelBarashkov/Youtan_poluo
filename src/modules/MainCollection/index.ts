@@ -1,2 +1,2 @@
 export { MainCollection } from './MainCollection';
-export { cardsSlice } from './store/slice/cardsSlice';
+export { cardsSlice }  from './store/slice/cardsSlice';

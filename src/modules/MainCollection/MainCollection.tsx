@@ -4,7 +4,7 @@ import { Title } from "./components/Title/Title";
 import { ListCard } from "../../components/ListCard/ListCard";
 import { Btn } from "./components/Btn/Btn";
 import { useAppDispatch } from "../../app/hooks";
-import { fetchCard } from "./store/slice/cardsSlice";
+import { fetchCardFavorite } from "./store/slice/cardsSlice";
 import { useSelector } from "react-redux";
 import { MySpinner } from "../../UI/MySpinner/MySpinner";
 
@@ -15,7 +15,7 @@ export const MainCollection = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchCard());
+    dispatch(fetchCardFavorite());
   }, []);
 
   return (
