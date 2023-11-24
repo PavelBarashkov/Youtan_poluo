@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCards } from "../../API/fetchCards";
 import { getPageCount } from "../../../helpers/pages";
+import { IType } from "../../interfaces/IType";
 
 interface ICard {
   cardId: number;
@@ -14,7 +15,7 @@ interface ICard {
 
 interface CardsState {
   cards: ICard[];
-  typeId?: number[];
+  typeId: IType[];
   bySort: string;
   page: number;
   limit: number;
@@ -27,7 +28,7 @@ const initialState: CardsState = {
   cards: [],
   page: 1,
   totalPages: 0,
-  limit: 3,
+  limit: 9,
   typeId: [],
   bySort: "default",
   loading: false,
@@ -53,7 +54,7 @@ export const fetchCard = createAsyncThunk(
   }
 );
 
-const params = (arr: any, number: any) => {
+const params = (arr: IType[], number: any) => {
   if (arr.includes(number)) {
     return arr.splice(arr.indexOf(number), 1);
   }
