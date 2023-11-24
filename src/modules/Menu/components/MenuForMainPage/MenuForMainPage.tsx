@@ -129,7 +129,7 @@ export const MenuForMainPage = () => {
         <>
             <Navbar className={classesMenu.customNavbarMain} data-bs-theme="dark" >
                 <Container className="d-flex justify-content-around">
-                        <Nav className={`mo-auto gap-3 ${classesMenu.customNav}`}>
+                        <Nav className={`mo-auto ${classesMenu.customNav}`}>
                             <NavLink 
                                 className={active} 
                                 to={STORE_ROUTE} 
@@ -157,7 +157,7 @@ export const MenuForMainPage = () => {
                         >
                             <Logo/>
                         </Navbar.Brand>
-                        <Nav className={`mo-auto gap-3 ${classesMenu.customNav}`}>
+                        <Nav className={`mo-auto ${classesMenu.customNav}`}>
                             <NavLink 
                                 className={classesMenu.customNavLink}  
                                 to={MAIN_ROUTE} 
