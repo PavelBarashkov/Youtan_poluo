@@ -1,23 +1,25 @@
-import React from "react";
 import { Card, Carousel, Col } from "react-bootstrap";
 import classesCardItem from "./cardItem.module.css";
-import photo from "../../assets/img/1 (1)_edited.jpg";
 import { ColorList } from "../ColorList/ColorList";
 import { SizeList } from "../SizeList/SizeList";
 import { AllSizes } from "../../helpers/AllSizes";
-import { AllColors } from "../../helpers/AllColors";
 import "./CardItem.css";
+import { useNavigate } from "react-router-dom";
+import { PRODUCT_ROUTE } from "../../routes/consts";
 
 export const CardItem = ({ card }: any) => {
-  // const colors = AllColors(card);
   const sizes = AllSizes(card.sizes);
+  const navigate = useNavigate();
 
   return (
     <Col lg={4} sm={6} className={classesCardItem.col}>
-      <Card className={classesCardItem.card}>
+      <Card
+        className={classesCardItem.card}
+        onClick={() => navigate(`${PRODUCT_ROUTE}${card.modelId}`)}
+      >
         <Card.Header className={classesCardItem.header}>
           <Carousel indicators={false} interval={null}>
-            <Carousel.Item className={classesCardItem.item}> 
+            <Carousel.Item className={classesCardItem.item}>
               <div className={classesCardItem.carousel_image}>
                 <img
                   className={classesCardItem.img}
