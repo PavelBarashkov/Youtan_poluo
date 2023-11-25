@@ -1,8 +1,9 @@
 import React from "react";
 import { Main } from "../pages/Main";
-import { BASKET_ROUTE, MAIN_ROUTE, STORE_ROUTE} from "./consts";
+import { BASKET_ROUTE, MAIN_ROUTE, PRODUCT_ROUTE, STORE_ROUTE} from "./consts";
 import { Store } from "../pages/Store";
 import { Basket } from "../pages/Basket";
+import { Product } from "../pages/Product";
 
 interface Path {
     path: string
@@ -21,6 +22,10 @@ export const publicRoutes: Path[] = [
     {
         path: BASKET_ROUTE,
         element: <Basket/>
+    },
+    {
+        path: PRODUCT_ROUTE,
+        element: <Product/>
     },
     {
         path: '/*',
