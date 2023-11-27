@@ -4,6 +4,7 @@ import { BtnPrev } from "../../components/BtnPrev/BtnPrev";
 import { useEffect, useState } from "react";
 import { useFetching } from "../../hooks/useFetching";
 import axios from "axios";
+import { Slide } from "./components/Slide/Slide";
 
 export const ProductInfo = () => {
   const { id } = useParams();
@@ -24,34 +25,18 @@ export const ProductInfo = () => {
     cardFetch(id);
   }, []);
   return (
-    <Container style={{marginTop: 59}}>
+    <Container style={{ marginTop: 59 }}>
       <BtnPrev />
       <div>
-        <Row>
-          <Col>
-            <Carousel indicators={false} interval={null}>
-              <Carousel.Item>
-                <div>
-                  <img
-                    src={card?.img && card.img[0]}
-                    alt="Youtan Poluo"
-                  />
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div>
-                  <img
-                    src={card?.img && card.img[1]}
-                    alt="Youtan Poluo"
-                  />
-                </div>
-              </Carousel.Item>
-            </Carousel>
+        <Row className="g-4 d-flex justify-content-between">
+          <Col md={4}>
+            <Slide imgs={card.img} />
           </Col>
-          <Col>
+          <Col md={8}>
             <div>{card?.name}</div>
             <div>{card.price}</div>
-            <div>{card?.products && card?.products[0]?.sizeId}</div> // TODO добавить имена размеров
+            <div>{card?.products && card?.products[0]?.sizeId}</div> // TODO
+            добавить имена размеров
             <button>В карзину</button>
             <div>{card.description}</div>
             <div>{card?.compound}</div>
