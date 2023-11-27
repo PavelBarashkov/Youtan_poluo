@@ -8,7 +8,8 @@ export const ColorList = ({colors}: any) => {
         {colors && (
             <div className={classesColorList.container}>
                 {colors.map((color: any) => (
-                    <ColorItem  key={color} color={color}/>
+                    // <ColorItem  key={color} color={color}/>
+                    <div></div>
                 ))}
             </div>
         )}

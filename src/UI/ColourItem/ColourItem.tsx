@@ -1,7 +1,12 @@
 import React from 'react'
 import classesColorItem from './colorItem.module.css'
 
-export const ColorItem = ({color}: any) => {
+interface test{
+    color: string,
+    hanlerClick:() => void
+}
+
+export const ColorItem = ({color, hanlerClick}: test) => {
     function hexToRgb(hex: string) {
         hex = hex.replace("#", "");
         const r = parseInt(hex.substring(0, 2), 16);
@@ -13,7 +18,7 @@ export const ColorItem = ({color}: any) => {
 
     return (
    
-        <div className={classesColorItem.color_item} style={{background: hexToRgb(color)}}></div>
+        <div onClick={() => hanlerClick()} className={classesColorItem.color_item} style={{background: hexToRgb(color)}}></div>
         
     )
 }
