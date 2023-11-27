@@ -24,10 +24,9 @@ export const ProductInfo = () => {
     cardFetch(id);
   }, []);
   return (
-    <Container>
+    <Container style={{marginTop: 59}}>
       <BtnPrev />
-      <div>{id}</div>
-      <Container>
+      <div>
         <Row>
           <Col>
             <Carousel indicators={false} interval={null}>
@@ -58,7 +57,7 @@ export const ProductInfo = () => {
             <div>{card?.compound}</div>
           </Col>
         </Row>
-      </Container>
+      </div>
     </Container>
   );
 };
