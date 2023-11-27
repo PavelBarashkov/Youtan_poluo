@@ -15,7 +15,7 @@ export const CardItem = ({ card }: any) => {
     <Col lg={4} sm={6} className={classesCardItem.col}>
       <Card
         className={classesCardItem.card}
-        onClick={() => navigate(`${PRODUCT_ROUTE}${card.modelId}`)}
+        onClick={() => navigate(`${PRODUCT_ROUTE}/${card.modelId}`)}
       >
         <Card.Header className={classesCardItem.header}>
           <Carousel indicators={false} interval={null}>

@@ -24,7 +24,7 @@ export const publicRoutes: Path[] = [
         element: <Basket/>
     },
     {
-        path: PRODUCT_ROUTE,
+        path: PRODUCT_ROUTE + '/:id',
         element: <Product/>
     },
     {

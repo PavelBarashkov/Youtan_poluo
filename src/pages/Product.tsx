@@ -1,7 +1,7 @@
-import React from 'react'
+import { ProductInfo } from '../modules/ProductInfo'
 
 export const Product = () => {
   return (
-    <div>Product</div>
+    <ProductInfo/>
   )
 }

@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app_container w-100 h-100">
-        <header>
+        <header className="header">
           <Menu />
         </header>
         <main className="content">
