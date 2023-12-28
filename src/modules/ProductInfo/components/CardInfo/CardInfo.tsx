@@ -1,51 +1,22 @@
-import React from "react";
 import classes from "./cardInfo.module.css";
-import { Dropdown } from "react-bootstrap";
-import { AllSizes } from "../../../../helpers/AllSizes";
-import { ColorItem } from "../../../../UI/ColourItem/ColourItem";
-import { useNavigate } from "react-router-dom";
-import { PRODUCT_ROUTE } from "../../../../routes/consts";
+import { Name } from "../Name/Name";
+import { Price } from "../Price/Price";
+import { Size } from "../Size/Size";
+import { Color } from "../Color/Color";
+import { BtnBasket } from "../BtnBasket/BtnBasket";
+import { Description } from "../Description/Description";
+import { Сompound } from "../Сompound/Сompound";
 
 export const CardInfo = ({ card }: any) => {
-  const navigate = useNavigate();
-
-  const sizes = AllSizes(card.size);
   return (
     <div className={classes.container}>
-      <div className={classes.name}>{card?.name}</div>
-      <div className={classes.price}>{card.price} &#8381;</div>
-      <Dropdown>
-        <Dropdown.Toggle className={classes.sizes}>
-          {card.size && card.size[0].name}
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu className={classes.menu}>
-          {card.size &&
-            sizes.map((size: any) => (
-              <Dropdown.Item
-                onClick={() => console.log(size.id)}
-                className={classes.menu_item}
-              >
-                {size.name}
-              </Dropdown.Item>
-            ))}
-        </Dropdown.Menu>
-      </Dropdown>
-      <div className={classes.colors}>
-        {card.colors &&
-          card.colors.map((color: any) => (
-            <ColorItem
-            hanlerClick={() => navigate(`${PRODUCT_ROUTE}/${color.modelId}`)}
-              color={color.color}
-            />
-          ))}
-      </div>
-      <div>{card?.products && card?.products[0]?.sizeId}</div>
-      <button className={classes.btn}>В карзину</button>
-      <div>{card.description}</div>
-      <div className={classes.compound}>
-        <span>Состав:</span> {card?.compound}
-      </div>
+      <Name name={card.name} />
+      <Price price={card.price} />
+      <Size sizes={card.size} />
+      <Color colors={card.colors} />
+      <BtnBasket />
+      <Description description={card.description} />
+      <Сompound compound={card.compound}/>
     </div>
   );
 };

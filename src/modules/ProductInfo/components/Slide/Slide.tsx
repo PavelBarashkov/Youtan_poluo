@@ -1,5 +1,5 @@
-import { Carousel } from "react-bootstrap";
 import "./style.css";
+import { Carousel } from "react-bootstrap";
 import { useState } from "react";
 import classes from "./carousel.module.css";
 
@@ -21,7 +21,12 @@ export const Slide = ({ imgs }: any) => {
         {imgs &&
           imgs.map((img: string) => (
             <Carousel.Item key={img}>
-              <img className="d-block w-100" src={img} alt={`Youtan Poluo`}  style={{borderRadius: 8}}/>
+              <img
+                className="d-block w-100"
+                src={img}
+                alt={`Youtan Poluo`}
+                style={{ borderRadius: 8 }}
+              />
             </Carousel.Item>
           ))}
       </Carousel>
