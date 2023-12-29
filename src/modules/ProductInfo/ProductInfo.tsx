@@ -16,14 +16,8 @@ export const ProductInfo = () => {
   const modelId = selected.color.modelId;
 
   useEffect(() => {
-    if (id) {
-      const params = {
-        id: Number(id),
-        cardId: 1,
-      };
-      dispatch(getCardInfo(params));
-    }
-  }, [modelId]);
+    dispatch(getCardInfo(Number(id)))
+  }, [modelId])
 
   return (
     <CustomContainer>
