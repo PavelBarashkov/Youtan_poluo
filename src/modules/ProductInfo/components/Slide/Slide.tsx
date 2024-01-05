@@ -2,6 +2,8 @@ import "./style.css";
 import { Carousel } from "react-bootstrap";
 import { useState } from "react";
 import classes from "./carousel.module.css";
+import Zoom from "react-medium-image-zoom";
+import 'react-medium-image-zoom/dist/styles.css'
 
 export const Slide = ({ imgs }: any) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,14 +22,17 @@ export const Slide = ({ imgs }: any) => {
       >
         {imgs &&
           imgs.map((img: string) => (
-            <Carousel.Item key={img}>
-              <img
-                className="d-block w-100"
-                src={img}
-                alt={`Youtan Poluo`}
-                style={{ borderRadius: 8 }}
-              />
-            </Carousel.Item>
+              <Carousel.Item key={img}>
+              <Zoom >
+                <img
+                  className="d-block w-100"
+                  alt={`Youtan Poluo`}
+                  src={img}
+                  width={500}
+                />
+              </Zoom>
+              </Carousel.Item>
+            
           ))}
       </Carousel>
       <div className={classes.indicators}>

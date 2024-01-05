@@ -25,7 +25,7 @@ export const ProductInfo = () => {
       <div>
         <Row className="d-flex justify-content-between">
           <Col md={4}>
-            <Slide imgs={card.img} />
+            <Slide imgs={card.images} />
           </Col>
           <Col md={7}>
             <CardInfo card={card} />
