@@ -6,6 +6,8 @@ import { AllSizes } from "../../helpers/AllSizes";
 import "./CardItem.css";
 import { useNavigate } from "react-router-dom";
 import { PRODUCT_ROUTE } from "../../routes/consts";
+import { CarouselListImg } from "../CarouselListImg/CarouselListImg";
+import { CarouselItem } from "../CarouselItem/CarouselItem";
 
 export const CardItem = ({ card }: any) => {
   const sizes = AllSizes(card.sizes);
@@ -18,8 +20,18 @@ export const CardItem = ({ card }: any) => {
         onClick={() => navigate(`${PRODUCT_ROUTE}/${card.modelId}`)}
       >
         <Card.Header className={classesCardItem.header}>
-          <Carousel indicators={false} interval={null}>
-            <Carousel.Item className={classesCardItem.item}>
+          <CarouselListImg images={card.imgs} />
+          {/* <Carousel indicators={false} interval={null}>
+            {card.imgs.map((img: string) => (
+              <CarouselItem key={img} img={img}/>
+            //   <Carousel.Item className={classesCardItem.item}>
+            //   <div className={classesCardItem.carousel_image}>
+            //     <img className={classesCardItem.img} src={img} alt="Youtan Poluo" />
+            //   </div>
+            // </Carousel.Item>
+            ))}
+          </Carousel> */}
+          {/* <Carousel.Item className={classesCardItem.item}>
               <div className={classesCardItem.carousel_image}>
                 <img
                   className={classesCardItem.img}
@@ -36,8 +48,7 @@ export const CardItem = ({ card }: any) => {
                   alt="Youtan Poluo"
                 />
               </div>
-            </Carousel.Item>
-          </Carousel>
+            </Carousel.Item> */}
         </Card.Header>
         <Card.Body className={classesCardItem.body}>
           <Card.Title className={classesCardItem.title}>

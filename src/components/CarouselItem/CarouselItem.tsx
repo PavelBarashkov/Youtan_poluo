@@ -4,18 +4,24 @@ import classes from "./carouselItem.module.css";
 import into from "../../assets/img/image.png";
 
 interface ICarouselItemProps {
-  imgs: string[];
+  img: string;
 }
 
-export const CarouselItem = ({ imgs }: ICarouselItemProps) => {
-  if (!imgs) {
-    return (
-      <Carousel.Item className={classes.item}>
-        <div className={classes.carousel_image}>
-          <img className={classes.img} src={into} alt="Youtan Poluo" />
-        </div>
-      </Carousel.Item>
-    );
-  }
-  return <div>CarouselItem</div>;
+export const CarouselItem = ({ img }: ICarouselItemProps) => {
+  // if (!img) {
+  //   return (
+  //     <Carousel.Item className={classes.item}>
+  //       <div className={classes.carousel_image}>
+  //         <img className={classes.img} src={into} alt="Youtan Poluo" />
+  //       </div>
+  //     </Carousel.Item>
+  //   );
+  // }
+  return (
+    <Carousel.Item >
+      <div style={{width: '100%', height: 50, background: 'red'}}>
+        {/* <img className={classes.img} src={img} alt="Youtan Poluo" /> */}
+      </div>
+    </Carousel.Item>
+  );
 };
