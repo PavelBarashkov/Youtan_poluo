@@ -1,7 +1,11 @@
 #root {
     height: 100%;
-
+    --main-background-btn: rgb(80 100 68 / 50%);
+    --main-background-btn-hover: rgb(80 100 68 / 79%);
 }
+
+
+
 html, body {
     height: 100%;
 }

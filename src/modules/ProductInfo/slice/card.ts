@@ -50,8 +50,8 @@ export const cardSlice = createSlice({
         state.selected.color.modelId = action.payload.id;
         state.selected.color.color = action.payload.color;
 
-        // state.selected.size.id = action.payload.size[0].id;
-        // state.selected.size.name = action.payload.size[0].name;
+        state.selected.size.id = action.payload.size[0].id;
+        state.selected.size.name = action.payload.size[0].name;
 
         state.loading = false;
         state.error = "";

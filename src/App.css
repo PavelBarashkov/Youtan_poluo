@@ -33,6 +33,3 @@
   flex-shrink: 0;
 }
 
-[data-rmiz-ghost] {
-  display: none !important;
-}

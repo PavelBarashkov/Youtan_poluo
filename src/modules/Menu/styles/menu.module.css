@@ -1,6 +1,6 @@
  .customNavbarMain {
     position: absolute;
-    z-index: 2;
+    z-index: 999;
     width: 100%;
     transition: background-color .2s;
     background-color: rgba(150, 158, 145, 0.7);
@@ -9,7 +9,7 @@
 .customNavbar {
     width: 100%;
     position: absolute;
-    z-index: 2;
+    z-index: 999;
     top: 0;
     transition: background-color .2s;
     background-color: rgba(150, 158, 145, 1);
@@ -18,7 +18,7 @@
 
 .customNavbarMenuOpen {
     position: absolute;
-    z-index: 2;
+    z-index: 999;
     top:0;
     width: 100%;
     background-color: rgba(150, 158, 145, 1);
