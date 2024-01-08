@@ -50,16 +50,20 @@ export const cardSlice = createSlice({
         state.selected.color.modelId = action.payload.id;
         state.selected.color.color = action.payload.color;
 
-        state.selected.size.id = action.payload.size[0].id;
-        state.selected.size.name = action.payload.size[0].name;
+        state.selected.size.id = action.payload.size[0]?.id;
+        state.selected.size.name = action.payload.size[0]?.name;
 
         state.loading = false;
         state.error = "";
       })
       .addCase(getCardInfo.rejected, (state, action) => {
-        console.log("Error:", action.payload);
+        console.log("Error:", JSON.stringify(action.payload));
         state.loading = false;
-        state.error = action.payload as string;
+        if (action.error.message === "Request failed with status code 404") {
+          state.error = "Продукт не найден";
+        } else {
+          state.error = action.error.message ?? "Произошла ошибка";
+        }
       });
   },
 });
